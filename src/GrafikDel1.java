@@ -20,17 +20,29 @@ public class GrafikDel1 extends Canvas {
 
     public void paint(Graphics g){
         drawHouse(g, 300, 200);
-        drawTreeArea(g, 10, 250, 440);
+        drawTreeArea(g, 10, 280, 440);
+        drawTreeArea(g, 470, 700, 440);
     }
 
     private void drawTreeArea(Graphics g, int x, int x2, int y){
-        drawTree(g, x, y);
+        for(int i = 0; i < x2/30; i++){
+            drawTree(g, x+(i*30), y);
+        }
     }
 
     private void drawTree(Graphics g, int x, int y){
+        double rand = Math.random()*10;
         g.setColor(new Color(0x460D0D));
         g.fillRect(x+12, y+35, 6, 25);
-        g.setColor(new Color(0x185725));
+        if(rand > 3 && rand < 6){
+            g.setColor(new Color(0x185725));
+        }
+        else if(rand <= 3){
+            g.setColor(new Color(0x2B8C25));
+        }
+        else{
+            g.setColor(new Color(0x838C25));
+        }
         g.fillOval(x, y, 30, 40);
     }
 
